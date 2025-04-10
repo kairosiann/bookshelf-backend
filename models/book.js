@@ -30,10 +30,20 @@ const BookSchema = new mongoose.Schema({
 	publishedDate: {
 		type: Date
 	},
+	publisher: {
+		type: String
+	},
+	pageCount: {
+		type: Number
+	},
 	genres: [{
 		type: String,
 		trim: true
 	}],
+	source: {
+		type: String,
+		enum: ['USER_ADDED', 'Google Books', ]
+	},
 	addedBy: {
 		type: mongoose.Schema.ObjectId,
 		ref: 'User',
